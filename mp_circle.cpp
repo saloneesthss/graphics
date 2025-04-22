@@ -8,7 +8,7 @@ int main()
     int x, y, r;
     printf("Enter the Midpoint: ");
     scanf("%d%d", &x, &y);
-    printf("Enter the Midpoint: ");
+    printf("Enter the Radius: ");
     scanf("%d", &r);
     initgraph(&gd, &gm, (char *)"");
     drawCircle(x, y, r);
