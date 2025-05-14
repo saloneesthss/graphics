@@ -30,7 +30,8 @@ void cohenSutherlandClipAndDraw(int x1, int y1, int x2, int y2) {
     int code2 = computeCode(x2, y2);
     int accept = 0;
 
-    setcolor(LIGHTGRAY);
+    int bgcolor=getbkcolor();
+    setcolor(bgcolor);
     line(x1, y1, x2, y2); // Draw original line in gray
 
     while (1) {
