@@ -1,45 +1,49 @@
-#include <conio.h>
 #include <graphics.h>
-#include <iostream>
 #include <stdio.h>
-int gd = DETECT, gm;
-int n, xs[100], ys[100], i, ty, tx;
-void draw();
-void translate();
-using namespace std;
-int main()
-{
-    cout << "Enter no. of sides in polygon: ";
-    cin >> n;
-    cout << "Enter coordinates x, y for each vertex: ";
+#include <conio.h>
+
+int main() {
+    int gd = DETECT, gm;
+    int n, xs[100], ys[100], i, tx, ty;
+    int x1, y1, x2, y2; // for line drawing
+
+    printf("Enter number of sides of the polygon: ");
+    scanf("%d", &n);
+
+    printf("Enter x and y coordinates for each vertex:\n");
     for (i = 0; i < n; i++) {
-        cin >> xs[i] >> ys[i];
+        printf("x%d: ", i + 1);
+        scanf("%d", &xs[i]);
+        printf("y%d: ", i + 1);
+        scanf("%d", &ys[i]);
     }
-    cout << "Enter distances for translation (in x and y "
-            "directions): ";
-    cin >> tx >> ty;
-    initgraph(&gd, &gm, (char*)"");
-    cleardevice();
+
+    printf("Enter translation distances (tx ty): ");
+    scanf("%d %d", &tx, &ty);
+
+    initgraph(&gd, &gm, ""); // Initialize graphics mode
+
+    // Draw the original polygon
     setcolor(RED);
-    draw();
-    translate();
-    setcolor(YELLOW);
-    draw();
-    getch();
-    closegraph();
+    for (i = 0; i < n; i++) {
+        x1 = xs[i];
+        y1 = ys[i];
+        x2 = xs[(i + 1) % n];
+        y2 = ys[(i + 1) % n];
+        line(x1, y1, x2, y2);
+    }
+
+    // Translate the polygon
+    setcolor(YELLOW); // Set color for translated polygon
+    for (i = 0; i < n; i++) {
+        x1 = xs[i] + tx;
+        y1 = ys[i] + ty;
+        x2 = xs[(i + 1) % n] + tx;
+        y2 = ys[(i + 1) % n] + ty;
+        line(x1, y1, x2, y2);
+    }
+
+    getch(); // Wait for a key press
+    closegraph(); // Close graphics mode
     return 0;
-}
-void draw()
-{
-    for (i = 0; i < n; i++) {
-        line(xs[i], ys[i], xs[(i + 1) % n],
-             ys[(i + 1) % n]);
-    }
-}
-void translate()
-{
-    for (i = 0; i < n; i++) {
-        xs[i] += tx;
-        ys[i] += ty;
-    }
 }

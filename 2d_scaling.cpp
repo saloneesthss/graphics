@@ -1,47 +1,39 @@
-#include <conio.h>
-#include <graphics.h>
-#include <iostream>
-#include <math.h>
 #include <stdio.h>
- 
+#include <graphics.h>
+#include <math.h>
 int gd = DETECT, gm;
-int n, x[100], y[100], i;
+int n, xs[100], ys[100], i;
 float sfx, sfy;
-void draw();
-void scale();
-using namespace std;
- 
-int main()
+
+void DrawFn()
 {
-    cout << "Enter no. of sides in polygon: ";
-    cin >> n;
-    cout << "Enter coordinates x, y for each vertex: ";
-    for (i = 0; i < n; i++) {
-        cin >> x[i] >> y[i];
-    }
-    cout << "Enter scale factors: sfx and sfy : ";
-    cin >> sfx >> sfy;
-    initgraph(&gd, &gm, (char*)"");
-    cleardevice();
-    setcolor(getbkcolor());
-    draw();
-    scale();
-    setcolor(WHITE);
-    draw();
-    getch();
-    closegraph();
-    return 0;
+    for (i = 0; i < n; i++)
+        line(xs[i], ys[i], xs[(i + 1) % n], ys[(i + 1) % n]);
 }
-void draw()
-{
-    for (i = 0; i < n; i++) {
-        line(x[i], y[i], x[(i + 1) % n], y[(i + 1) % n]);
-    }
-}
+
 void scale()
 {
-    for (i = 0; i < n; i++) {
-        x[i] = x[0] + (int)((float)(x[i] - x[0]) * sfx);
-        y[i] = y[0] + (int)((float)(y[i] - y[0]) * sfx);
+    for (i = 0; i < n; i++)
+    {
+        xs[i] = xs[0] + (int)((float)(xs[i] - xs[0]) * sfx);
+        ys[i] = ys[0] + (int)((float)(ys[i] - ys[0]) * sfy);
     }
+}
+
+void main()
+{
+    printf("Enter number of sides: ");
+    scanf("%d", &n);
+    printf("Enter co-rdinates: x,y for each point ");
+    for (i = 0; i < n; i++)
+        scanf("%d%d", &xs[i], &ys[i]);
+    printf("Enter scale factors: (xs,ys) ");
+    scanf("%f%f", &sfx, &sfy);
+    initgraph(&gd, &gm, (char *)"C:\\TURBOC3\\BGI\\");
+    setcolor(getbkcolor());
+    DrawFn(); // original
+    scale();  // scaling
+    setcolor(WHITE);
+    DrawFn();
+    getch();
 }
