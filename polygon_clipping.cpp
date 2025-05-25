@@ -112,8 +112,7 @@ int main() {
         scanf("%d %d", &input[i].x, &input[i].y);
     }
 
-    // Draw original polygon in GREEN
-    drawPolygon(input, n, getbkcolor());
+    drawPolygon(input, n, WHITE);
 
     // Draw clipping window in WHITE
     setcolor(WHITE);
@@ -134,9 +133,8 @@ int main() {
         }
     }
 
-    // Draw clipped polygon in YELLOW
     if (clipped_n > 0) {
-        drawPolygon(poly1, clipped_n, YELLOW);
+        drawPolygon(poly1, clipped_n, WHITE);
     }
 
     getch();

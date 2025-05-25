@@ -39,12 +39,12 @@ void drawCircle(int x1, int y1, int r)
 
 void plotPoints(int xctr, int yctr, int x, int y)
 {
-    putpixel(xctr + x, yctr + y, 1);
-    putpixel(xctr - x, yctr + y, 1);
-    putpixel(xctr + x, yctr - y, 1);
-    putpixel(xctr - x, yctr - y, 1);
-    putpixel(xctr + y, yctr + x, 1);
-    putpixel(xctr - y, yctr + x, 1);
-    putpixel(xctr + y, yctr - x, 1);
-    putpixel(xctr - y, yctr - x, 1);
+    putpixel(xctr + x, yctr + y, 15);
+    putpixel(xctr - x, yctr + y, 15);
+    putpixel(xctr + x, yctr - y, 15);
+    putpixel(xctr - x, yctr - y, 15);
+    putpixel(xctr + y, yctr + x, 15);
+    putpixel(xctr - y, yctr + x, 15);
+    putpixel(xctr + y, yctr - x, 15);
+    putpixel(xctr - y, yctr - x, 15);
 }

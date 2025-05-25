@@ -6,7 +6,7 @@ void draw_moving_car(void) {
 	initgraph(&gd, &gm, (char *)"");
 
 	for (i = 0; i <= 420; i = i + 10) {
-		setcolor(RED);
+		setcolor(WHITE);
 
 		line(0 + i, 300, 210 + i, 300);
 		line(50 + i, 300, 75 + i, 270);

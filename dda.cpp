@@ -17,7 +17,7 @@ void DDA(int X0, int Y0, int X1, int Y1)
 	float X = X0; 
 	float Y = Y0; 
 	for (int i = 0; i <= steps; i++) { 
-		putpixel(round(X), round(Y), RED); // put pixel at (X,Y) 
+		putpixel(round(X), round(Y), WHITE); // put pixel at (X,Y) 
 		X += Xinc;
 		Y += Yinc;
 		delay(100);

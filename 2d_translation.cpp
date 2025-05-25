@@ -21,10 +21,10 @@ int main() {
     printf("Enter translation distances (tx ty): ");
     scanf("%d %d", &tx, &ty);
 
-    initgraph(&gd, &gm, ""); // Initialize graphics mode
+    initgraph(&gd, &gm, (char *)""); // Initialize graphics mode
 
     // Draw the original polygon
-    setcolor(RED);
+    setcolor(WHITE);
     for (i = 0; i < n; i++) {
         x1 = xs[i];
         y1 = ys[i];

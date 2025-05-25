@@ -73,7 +73,7 @@ void cohenSutherlandClipAndDraw(int x1, int y1, int x2, int y2) {
     }
 
     if (accept) {
-        setcolor(GREEN);
+        setcolor(WHITE);
         line(x1, y1, x2, y2);
     }
 }

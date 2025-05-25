@@ -40,6 +40,6 @@ void RotateTriangle(int x1, int y1, int x2, int y2, int x3, int y3, float angle)
     int b2 = q + (x2 - p) * sin(radianAngle) + (y2 - q) * cos(radianAngle);
     int a3 = p + (x3 - p) * cos(radianAngle) - (y3 - q) * sin(radianAngle);
     int b3 = q + (x3 - p) * sin(radianAngle) + (y3 - q) * cos(radianAngle);
-    setcolor(1);
+    setcolor(15);
     DrawTriangle(a1, b1, a2, b2, a3, b3);
 }
